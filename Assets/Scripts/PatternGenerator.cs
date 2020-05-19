@@ -30,10 +30,9 @@ public class PatternGenerator : MonoBehaviour
     {
         
         _startPos = Text.transform.position;
-        Generate();
     }
 
-    public void Generate() {
+    public void Generate(string character="random") {
 
         Text.font = Fonts[Random.Range(0,Fonts.Count)];
         Text.transform.rotation = Quaternion.Euler(0,0,Random.Range(MinRotation,MaxRotation));
@@ -41,6 +40,12 @@ public class PatternGenerator : MonoBehaviour
         Text.transform.position = _startPos + new Vector3(Random.Range(MinTranslation,MaxTranslation),Random.Range(MinTranslation,MaxTranslation),0);
     
         Text.transform.localScale = Vector3.one * Random.Range(MinScale,MaxScale);
-        Text.text = Random.Range(0,10).ToString();
+        if (character == "random") {
+            Text.text = Random.Range(0,10).ToString();
+        }
+        else {
+            Text.text = character;
+        }
+        
     }
 }

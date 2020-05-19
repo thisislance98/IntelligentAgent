@@ -84,7 +84,7 @@ public class MainController : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Space)) {
-            GeneratePattern();
+            PatternGenerator.Instance.Generate("3");
         }
 
     }
